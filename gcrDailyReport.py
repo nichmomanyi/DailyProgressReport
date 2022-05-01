@@ -4,7 +4,7 @@ import pandas as pd
 import plotly.graph_objects as go
 
 #Variable Names
-date = "12-06"
+date = "01-05"
 
 #Program Variables
 header = st.beta_container()
@@ -132,7 +132,7 @@ if (sidebarContent == "Progress Report"):
     with(header):
         st.image('images/banner.png', use_column_width=True)
         st.markdown("<h1 style='text-align: center'><b>Daily Progress Report 🌩 KIT Kolhapur</b></h1>", unsafe_allow_html=True)
-        st.write("Last Updated On: " + date + "-2021")
+        st.write("Last Updated On: " + date + "-2022")
         st.write("#####")
 
     with(login):
@@ -207,7 +207,7 @@ elif (sidebarContent == "Milestone Leaderboard"):
     with(header):
         st.image('images/banner.png', use_column_width=True)
         st.markdown("<h1><b>Milestone Leaderboard 🏃‍♂️ KIT Kolhapur</b></h1>", unsafe_allow_html=True)
-        st.write("Last Updated On: " + date + "-2021")
+        st.write("Last Updated On: " + date + "-2022")
         st.write("#####")
 
     with(login):
@@ -385,11 +385,10 @@ else:
         st.subheader("**Program Deadline: 10 June, 2021**")
 
         st.subheader("**Important Links**")
-        st.write("🌐 [GCR Program Site](https://bit.ly/crf-site)")
-        st.write("📁 [Program Syllabus](https://bit.ly/crf-syllabus)")
-        st.write("✅ [Solution Videos](https://docs.google.com/document/d/1B0iHlOd2LkuOW1j7dpfSW_GFAzR_jhUX-WnuqSwrXUA/edit)")
+        st.write("🌐 [GCR Program Site](https://bit.ly/gcrf-site)")
+        st.write("📁 [Program Syllabus](https://bit.ly/gcrf-syllabus)")
 
         st.subheader("**Prizes**")
         st.image('images/prizes.png', use_column_width=True)
 
-        st.info("Made With ❤️ by [Dhanraj Chavan](https://www.linkedin.com/dhanrajdc7) & [Kshitij Sangar](https://www.linkedin.com/in/kshitij-sangar/)")
+        st.info("Made With ❤️ by [R Ashwin](https://www.linkedin.com/ashwin3082002)")
