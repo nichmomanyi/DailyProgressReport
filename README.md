@@ -15,4 +15,4 @@ GoogleCloud Daily Progress Report Template
 WebApp will be live on your hosted address. You can update your data daily & push it to GitHub, it will update automatically on Streamlit.
 
 ## Support
-If you like this repo, please give this repo a Star ⭐️ & Follow me on GitHub [@dhanrajdc7](https://github.com/dhanrajdc7) to stay updated.
+If you like this repo, please give this repo a Star ⭐️ & Follow me on GitHub [@ashwin3082002](https://github.com/ashwin3082002) to stay updated.
