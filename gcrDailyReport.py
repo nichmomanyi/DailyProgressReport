@@ -7,10 +7,10 @@ import plotly.graph_objects as go
 date = "01-05"
 
 #Program Variables
-header = st.beta_container()
-login = st.beta_container()
-body = st.beta_container()
-owners = st.beta_container()
+header = st.container()
+login = st.container()
+body = st.container()
+owners = st.container()
 
 #Reading the file
 data = pd.read_csv("data/" + date + ".csv")
@@ -244,11 +244,11 @@ elif (sidebarContent == "Milestone Leaderboard"):
         if( i == textInput):
             status = True
     if(textInput != "" and status):
-        m4 = st.beta_container()
-        m3 = st.beta_container()
-        m2 = st.beta_container()
-        m1 = st.beta_container()
-        cred = st.beta_container()
+        m4 = st.container()
+        m3 = st.container()
+        m2 = st.container()
+        m1 = st.container()
+        cred = st.container()
 
         df["level"] = 0
         for i in range(len(df)):
