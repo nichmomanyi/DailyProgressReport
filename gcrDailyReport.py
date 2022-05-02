@@ -50,13 +50,13 @@ def findMilestoneLevel(tindex):
     cquest = int(df["# of Quests Completed"][tindex])
     cskillbg = int(df["# of Skill Badges Completed"][tindex])
 
-    if (cquest >= 8 and cskillbg >= 4):
+    if (cquest >= 10 and cskillbg >= 8):
         level = 1
-    if (cquest >= 16 and cskillbg >= 8):
+    if (cquest >= 20 and cskillbg >= 12):
         level = 2
-    if (cquest >= 24 and cskillbg >= 12):
+    if (cquest >= 30 and cskillbg >= 16):
         level = 3
-    if (cquest >= 30 and cskillbg >= 15):
+    if (cquest >= 40 and cskillbg >= 20):
         level = 4
 
     return level
@@ -92,13 +92,13 @@ def showStats():
             if (qCount > 0 and sCount > 0):
                 m0Count += 1
 
-        if (qCount >= 8 and sCount >= 4):
+        if (qCount >= 10 and sCount >= 8):
             level = 1
-        if (qCount >= 16 and sCount >= 8):
+        if (qCount >= 20 and sCount >= 12):
             level = 2
-        if (qCount >= 24 and sCount >= 12):
+        if (qCount >= 30 and sCount >= 16):
             level = 3
-        if (qCount >= 30 and sCount >= 15):
+        if (qCount >= 40 and sCount >= 20):
             level = 4
 
         if level == 1:
@@ -156,39 +156,39 @@ if (sidebarContent == "Progress Report"):
 
             st.markdown('<b class="big-font">Milestone Status</b>', unsafe_allow_html=True)
 
-            quest, skillbg, per = milestoneCal(40, 40, tindex)
+            quest, skillbg, per = milestoneCal(40, 20, tindex)
             st.subheader("You have completed " + str(quest) + " Quests and " + str(skillbg) +" Skill Badges.")
             if(quest >= 8 and skillbg >= 4):
                 st.balloons()
 
             #Milestone1
-            quest, skillbg, per = milestoneCal(8, 4, tindex)
+            quest, skillbg, per = milestoneCal(10, 8, tindex)
             #per = int(((quest+skillbg)/12)*100)
-            st.subheader("Milestone1 :    " + str(per) +"% Completed\n Quests: " + str(quest)+ "/8, Skill Badge: " + str(skillbg)+ "/4")
+            st.subheader("Milestone1 :    " + str(per) +"% Completed\n Quests: " + str(quest)+ "/10, Skill Badge: " + str(skillbg)+ "/8")
             if(quest >= 8 and skillbg >= 4):
                 st.write("🥳 Congratulations! You have completed your 1st Milestone 🎊🎊🎊")
             else:
                 st.progress(per)
 
             #Milestone2
-            quest, skillbg, per = milestoneCal(16, 8, tindex)
-            st.subheader("Milestone2 :    " + str(per) +"% Completed\n Quests: " + str(quest) + "/16, Skill Badge: " + str(skillbg) + "/8")
+            quest, skillbg, per = milestoneCal(20, 12, tindex)
+            st.subheader("Milestone2 :    " + str(per) +"% Completed\n Quests: " + str(quest) + "/20, Skill Badge: " + str(skillbg) + "/12")
             if (quest >= 16 and skillbg >= 8):
                 st.write("🥳 Congratulations! You have completed your 2nd Milestone 🎊🎊🎊")
             else:
                 st.progress(per)
 
             # Milestone3
-            quest, skillbg, per = milestoneCal(24, 12, tindex)
-            st.subheader("Milestone3 :    " + str(per) +"% Completed\n Quests: " + str(quest) + "/24, Skill Badge: " + str(skillbg) + "/12")
+            quest, skillbg, per = milestoneCal(30, 16, tindex)
+            st.subheader("Milestone3 :    " + str(per) +"% Completed\n Quests: " + str(quest) + "/30, Skill Badge: " + str(skillbg) + "/16")
             if (quest == 24 and skillbg == 12):
                 st.write("🥳 Congratulations! You have completed your 3rd Milestone 🎊🎊🎊")
             else:
                 st.progress(per)
 
             # Ultimate Milestone
-            quest, skillbg, per = milestoneCal(30, 15, tindex)
-            st.subheader("Ultimate Milestone :    " + str(per) +"% Completed\n Quests: " + str(quest) + "/30, Skill Badge: " + str(skillbg) + "/15")
+            quest, skillbg, per = milestoneCal(40, 20, tindex)
+            st.subheader("Ultimate Milestone :    " + str(per) +"% Completed\n Quests: " + str(quest) + "/40, Skill Badge: " + str(skillbg) + "/20")
             if (quest >= 30 and skillbg >= 15):
                 st.write("🥳 Congratulations! You have completed you Ultimate Milestone 🎊🎊🎊")
             else:
@@ -216,7 +216,7 @@ elif (sidebarContent == "Milestone Leaderboard"):
 
     status = False
 
-    if textInput == "infytracer@gmail.com":
+    if textInput == "ashwin3082002@gmail.com":
         ml0, ml1, ml2, ml3, ml4, questTotal, skillbgTotal, inactiveCount = showStats()
 
         labels = ['Milestone0', 'Milestone1', 'Milestone2', 'Milestone3', 'Milestone4', 'Inactive']
@@ -255,13 +255,13 @@ elif (sidebarContent == "Milestone Leaderboard"):
             quests = df["# of Quests Completed"][i]
             badges = df["# of Skill Badges Completed"][i]
             level=0
-            if (quests >= 8 and badges >= 4):
+            if (quests >= 10 and badges >= 8):
                 level = 1
-            if (quests >= 16 and badges >= 8):
+            if (quests >= 20 and badges >= 12):
                 level = 2
-            if (quests >= 24 and badges >= 12):
+            if (quests >= 30 and badges >= 16):
                 level = 3
-            if (quests >= 30 and badges >= 15):
+            if (quests >= 40 and badges >= 20):
                 level = 4
             df["level"][i] = level
 
