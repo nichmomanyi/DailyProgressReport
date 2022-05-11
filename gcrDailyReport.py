@@ -4,7 +4,7 @@ import pandas as pd
 import plotly.graph_objects as go
 
 #Variable Names
-date = "09-05"
+date = "11-05"
 
 #Program Variables
 header = st.container()
@@ -21,7 +21,7 @@ for i in range(len(df["Student Email"])):
 
 
 #WebApp -- "Milestone Leaderboard"
-sidebarContent = st.sidebar.radio("Menu", ["Progress Report", "Milestone Leaderboard", "Generate Badge", "Program Resources"])
+sidebarContent = st.sidebar.radio("Menu", ["Progress Report",  "Program Resources"])
 #Progress Report Page
 st.markdown("""
 <style>
@@ -145,10 +145,9 @@ if (sidebarContent == "Progress Report"):
                 status = True
         if(textInput != "" and status):
             tindex = df[df["Student Email"] == textInput].index[0] #Finding the index of the search emailID
-            st.title("Welcome " + str(df["Student Name"][tindex]) +" !")
+            st.title("Welcome Student!")
 
             st.write("**Enrollment Status:** " + str(df["Enrolment Status"][tindex]))
-            st.write("**EmailID:** " + str(df["Student Email"][tindex]))
             st.write("[View Google Cloud Skills Boost Profile URL](" + str(df["Google Cloud Skills Boost Profile URL"][tindex]) + ")")
             st.write("**Institution:** " + str(df["Institution"][tindex]))
 
