@@ -119,7 +119,7 @@ def prizeWinners(limit):
     finalList =[]
     for i in range(len(df)):
         if(df["level"][i] == limit):
-            name=df["Google Cloud Skills Boost Profile URL"]
+            name=df["Google Cloud Skills Boost Profile URL"][i]
             finalList.append(name)
     finalList.sort()
     return finalList
