@@ -21,7 +21,7 @@ for i in range(len(df["Student Email"])):
 
 
 #WebApp -- "Milestone Leaderboard"
-sidebarContent = st.sidebar.radio("Menu", ["Progress Report",  "Program Resources"])
+sidebarContent = st.sidebar.radio("Menu", ["Progress Report", "Milestone Leaderboard" , "Program Resources"])
 #Progress Report Page
 st.markdown("""
 <style>
