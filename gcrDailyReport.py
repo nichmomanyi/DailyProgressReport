@@ -80,7 +80,7 @@ def showStats():
         if (qCount == 0 and sCount == 0):
             inactive += 1
 
-        if (qCount < 8 or sCount < 4):
+        if (qCount < 10 or sCount < 5):
             if qCount == 0:
                 if sCount >= 1:
                     m0Count += 1
@@ -154,8 +154,6 @@ if (sidebarContent == "Progress Report"):
 
             quest, skillbg, per = milestoneCal(40, 20, tindex)
             st.subheader("You have completed " + str(quest) + " Quests and " + str(skillbg) +" Skill Badges.")
-            if(quest >= 8 and skillbg >= 4):
-                st.balloons()
 
             #Milestone1
             quest, skillbg, per = milestoneCal(10, 5, tindex)
