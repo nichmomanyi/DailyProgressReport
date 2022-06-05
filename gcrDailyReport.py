@@ -4,7 +4,8 @@ import pandas as pd
 import plotly.graph_objects as go
 
 #Variable Names
-date = "04-06"
+date = "05-06"
+time = "02:53 PM"
 
 #Program Variables
 header = st.container()
@@ -129,7 +130,7 @@ if (sidebarContent == "Progress Report"):
     with(header):
         st.image('images/banner.png', use_column_width=True)
         st.markdown("<h1 style='text-align: center'><b>Daily Progress Report 🌩 Panimalar Engineering College</b></h1>", unsafe_allow_html=True)
-        st.write("Last Updated On: " + date + "-2022  03:32PM")
+        st.write("Last Updated On: " + date + "-2022 "+time)
         st.write("#####")
 
     with(login):
