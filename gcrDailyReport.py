@@ -202,7 +202,7 @@ elif (sidebarContent == "Milestone Leaderboard"):
     with(header):
         st.image('images/banner.png', use_column_width=True)
         st.markdown("<h1><b>Milestone Leaderboard 🏃‍♂️ Panimalar Engineering College</b></h1>", unsafe_allow_html=True)
-        st.write("Last Updated On: " + date + "-2022")
+        st.write("Last Updated On: " + date + "-2022 "+time)
         st.write("#####")
 
     with(login):
