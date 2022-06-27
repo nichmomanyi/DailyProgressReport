@@ -4,7 +4,7 @@ import pandas as pd
 import plotly.graph_objects as go
 
 #Variable Names
-date = "26-06"
+date = "27-06"
 time = "02:53 PM"
 
 #Program Variables
