@@ -369,7 +369,7 @@ elif (sidebarContent == "Generate Badge"):
                             )
         elif (textInput != "" and status == False):
             st.error("No Entry Found")
-        st.write("**Disclaimer**: This Badge is not endorsed nor supported by Google, These badges cannot be back verified and it is completely <strong>UNOFFICIAL</strong> and it is no way related to google.")
+        st.write("**Disclaimer**: This Badge is not endorsed nor supported by Google, These badges cannot be back verified and it is completely **UNOFFICIAL** and it is no way related to google.")
         st.write("### **Instructions on Uploading your Image and Downloading the Badge:**")
         st.write(f"""
         * You should have completed at least 1st Milestone to get your badge
