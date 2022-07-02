@@ -349,8 +349,7 @@ elif (sidebarContent == "Generate Badge"):
                         img = Image.open("images/milestone4.png").convert("RGBA")
                     elif level == 0:
                         img = Image.open("images/milestone0.png").convert("RGBA")
-                    with open(os.path.join("fileDir",image_file.name),"wb") as f:
-                        f.write((image_file).getbuffer())
+                    
                     img = img.resize(size, Image.ANTIALIAS)
                     card = Image.open(image_file)
 
