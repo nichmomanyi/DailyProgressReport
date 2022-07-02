@@ -2,10 +2,11 @@ import streamlit as st
 from PIL import Image
 import pandas as pd
 import plotly.graph_objects as go
+import os
 
 #Variable Names
 date = "02-07"
-time = "02:58 PM"
+time = "02:55 PM"
 
 #Program Variables
 header = st.container()
@@ -22,7 +23,7 @@ for i in range(len(df["Student Email"])):
 
 
 #WebApp -- "Milestone Leaderboard"
-sidebarContent = st.sidebar.radio("Menu", ["Progress Report", "Milestone Leaderboard" , "Program Resources"])
+sidebarContent = st.sidebar.radio("Menu", ["Progress Report", "Milestone Leaderboard" ,"Generate Badge", "Program Resources"])
 #Progress Report Page
 st.markdown("""
 <style>
@@ -311,7 +312,74 @@ elif (sidebarContent == "Milestone Leaderboard"):
             #st.write("Developed & Managed By : R Ashwin")
     elif (textInput != "" and status == False):
         st.error("Sorry, we won't be able to show you the Milestone Achievers unless and untill you are a Participant under GCRF Program Panimalar Engineering College, Chennai")
+elif (sidebarContent == "Generate Badge"):
+    with(header):
+        st.image('images/banner.png', use_column_width=True)
+        st.markdown("<h1 style='text-align: center'><b>🔖 Generate GoogleCloudReady Badge</b></h1>", unsafe_allow_html=True)
+        st.write("#####")
 
+    with(login):
+        textInput = st.text_input("Enter your Email ID").lower()
+
+        #Input Activity
+        status = False
+        for i in df["Student Email"]:
+            if( i == textInput):
+                status = True
+        if(textInput != "" and status):
+            tindex = df[df["Student Email"] == textInput].index[0]
+            level = findMilestoneLevel(tindex)
+
+            if level == 0:
+                st.warning("Achieve Your First Milestone  to Get your Badge")
+                st.image('images/milestone0.png', use_column_width=True)
+            else:
+                st.success(f"You're Currently on Milestone {level}")
+                image_file = st.file_uploader("Upload Image", type=['jpg', 'png', 'jpeg'])
+                
+                if image_file is not None:
+                    size = (750, 750)
+                    if level == 1:
+                        img = Image.open("images/milestone1.png").convert("RGBA")
+                    elif level == 2:
+                        img = Image.open("images/milestone2.png").convert("RGBA")
+                    elif level == 3:
+                        img = Image.open("images/milestone3.png").convert("RGBA")
+                    elif level == 4:
+                        img = Image.open("images/milestone4.png").convert("RGBA")
+                    elif level == 0:
+                        img = Image.open("images/milestone0.png").convert("RGBA")
+                    with open(os.path.join("fileDir",image_file.name),"wb") as f:
+                        f.write((image_file).getbuffer())
+                    img = img.resize(size, Image.ANTIALIAS)
+                    card = Image.open(image_file)
+
+                    card = card.resize(size, Image.ANTIALIAS)
+
+                    card.paste(img, (0, 0), img)
+                    card.save("first.png", format="png")
+                    st.image(card)
+                    
+                    with open("first.png", "rb") as file:
+                        btn = st.download_button(
+                                label="Download image",
+                                data=file,
+                                file_name="gcrf-badge.png",
+                                mime="image/png"
+                            )
+        elif (textInput != "" and status == False):
+            st.error("No Entry Found")
+        st.write("**Disclaimer**: This Badge is not endorsed nor supported by Google, These badges cannot be back verified and it is completely <strong>UNOFFICIAL</strong> and it is no way related to google.")
+        st.write("### **Instructions on Uploading your Image and Downloading the Badge:**")
+        st.write(f"""
+        * You should have completed at least 1st Milestone to get your badge
+        * Click on Browse Files below to Upload an image, Upload Image in JPG, PNG or JPEG Format only
+        * Upload a Square Image to get the best version of your Badge
+        * If you upload a landscape or out of shape image, it would be resized to 1:1
+        * According to your Milestone, your picture will be automatically applied with a badge
+        * Then do share on your social media handles by tagging us as your Facilitator [R Ashwin](https://www.linkedin.com/ashwin3082002) and [S Ajith](https://www.linkedin.com/in/s-ajith/) and Google Cloud India, also use `#GoogleCloudReady` tag. Google Cloud team closely monitor this tag :smile: :tada:
+        """)
+        st.info("Made With ❤️ by [R Ashwin](https://www.linkedin.com/ashwin3082002)")
 else:
     with(header):
         st.image('images/banner.png', use_column_width=True)
