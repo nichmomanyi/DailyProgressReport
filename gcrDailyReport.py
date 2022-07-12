@@ -136,6 +136,7 @@ if (sidebarContent == "Progress Report"):
 
     with(login):
         textInput = st.text_input("Enter your Email ID").lower()
+        st.write("NOTE: This is the final progress and no more changes will be done in this report. You will receive prizes according to the milestone that you have completed here.")
 
         #Input Activity
         status = False
