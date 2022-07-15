@@ -1,3 +1,4 @@
+from winreg import QueryReflectionKey
 import streamlit as st
 from PIL import Image
 import pandas as pd
@@ -330,6 +331,8 @@ elif (sidebarContent == "Generate Badge"):
         if(textInput != "" and status):
             tindex = df[df["Student Email"] == textInput].index[0]
             level = findMilestoneLevel(tindex)
+            cquest = int(df["# of Quests Completed"][tindex])
+            cskillbg = int(df["# of Skill Badges Completed"][tindex])
 
             if level == 0:
                 st.warning("Achieve Your First Milestone  to Get your Badge")
@@ -346,7 +349,7 @@ elif (sidebarContent == "Generate Badge"):
                         img = Image.open("images/milestone2.png").convert("RGBA")
                     elif level == 3:
                         img = Image.open("images/milestone3.png").convert("RGBA")
-                    elif level == 4:
+                    elif level == 4 or (cquest+cskillbg)>51:
                         img = Image.open("images/milestone4.png").convert("RGBA")
                     elif level == 0:
                         img = Image.open("images/milestone0.png").convert("RGBA")
