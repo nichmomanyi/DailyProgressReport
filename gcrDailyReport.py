@@ -338,7 +338,10 @@ elif (sidebarContent == "Generate Badge"):
                 st.warning("Achieve Your First Milestone  to Get your Badge")
                 st.image('images/milestone0.png', use_column_width=True)
             else:
-                st.success(f"You're Currently on Milestone {level}")
+                if (cquest+cskillbg)>51 or level==4:
+                    st.success("You're Currently on Milestone")
+                else:
+                    st.success(f"You're Currently on Milestone {level}")
                 image_file = st.file_uploader("Upload Image", type=['jpg', 'png', 'jpeg'])
                 
                 if image_file is not None:
