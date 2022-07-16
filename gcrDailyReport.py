@@ -332,15 +332,14 @@ elif (sidebarContent == "Generate Badge"):
             level = findMilestoneLevel(tindex)
             cquest = int(df["# of Quests Completed"][tindex])
             cskillbg = int(df["# of Skill Badges Completed"][tindex])
+            if (cquest+cskillbg)>51:
+                level=4
 
             if level == 0:
                 st.warning("Achieve Your First Milestone  to Get your Badge")
                 st.image('images/milestone0.png', use_column_width=True)
             else:
-                if (cquest+cskillbg)>51 or level==4:
-                    st.success("You're Currently on Milestone 4")
-                else:
-                    st.success(f"You're Currently on Milestone {level}")
+                st.success(f"You're Currently on Milestone {level}")
                 image_file = st.file_uploader("Upload Image", type=['jpg', 'png', 'jpeg'])
                 
                 if image_file is not None:
@@ -351,7 +350,7 @@ elif (sidebarContent == "Generate Badge"):
                         img = Image.open("images/milestone2.png").convert("RGBA")
                     elif level == 3:
                         img = Image.open("images/milestone3.png").convert("RGBA")
-                    elif level == 4 or (cquest+cskillbg)>51:
+                    elif level == 4:
                         img = Image.open("images/milestone4.png").convert("RGBA")
                     elif level == 0:
                         img = Image.open("images/milestone0.png").convert("RGBA")
